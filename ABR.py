@@ -37,6 +37,9 @@ class ABR:
     def setRoot(self, key):
         self.root = Node(key)
 
+    def changeRoot(self, node):
+        self.root = node
+
     def getRoot(self):
         return self.root
 
@@ -47,8 +50,6 @@ class ABR:
             a.padre = None  # self.previousnode(key, self.root)
         else:
             self.insertNode(self.root, key)
-            a = self.treesearch(key, self.root)
-            a.padre = self.previousnode(key, self.root)
 
     def insertNode(self, currentNode, key):
         if key <= currentNode.key:
@@ -56,11 +57,15 @@ class ABR:
                 self.insertNode(currentNode.left, key)
             else:
                 currentNode.left = Node(key)
+                currentNode.left.setp(currentNode)
+                return currentNode.left
         elif key > currentNode.key:
             if currentNode.right:
                 self.insertNode(currentNode.right, key)
             else:
                 currentNode.right = Node(key)
+                currentNode.right.setp(currentNode)
+                return currentNode.right
 
     def find(self, key):
         return self.findNode(self.root, key)
@@ -97,7 +102,7 @@ class ABR:
             return currentNode
         print "Elemento non presente"
 
-    def previousnode(self, k, currentNode):  # restituisce il ptr al nodo precendente
+    '''def previousnode(self, k, currentNode):  # restituisce il ptr al nodo precendente
         while currentNode and k != currentNode.key:
             if k < currentNode.key:
                 currentptr = currentNode
@@ -108,7 +113,7 @@ class ABR:
         if currentNode:
             return currentptr
         print "Precedente non presente"
-
+'''
 
 def main():
     tree = ABR()
