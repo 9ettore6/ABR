@@ -125,20 +125,3 @@ class RBTree(ABR.ABR):
                     self.left_rotate(z.getP().getP())
         self.root.setColor("black")
 
-'''
-rbtre = RBTree()
-rbtre.insert(4)
-rbtre.insert(5)
-rbtre.insert(2)
-rbtre.insert(1)
-rbtre.insert(3)
-rbtre.insert(8)
-rbtre.insert(6)
-rbtre.inorder()
-a = rbtre.treeSearch(4,rbtre.getRoot())
-print "padre:", a.getP().key
-print "figlio:", a.left.key
-print rbtre.getRoot().key
-rbtre.left_rotate(a)
-print rbtre.getRoot().key
-'''

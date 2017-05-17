@@ -106,17 +106,4 @@ class ABR:
             print" _ ) ,",
 
 
-'''
-tre = ABR()
-tre.insert(8)
-tre.insert(7)
-tre.insert(4)
-tre.insert(3)
-tre.insert(9)
-b = tre.treemaximum(tre.getRoot())
-print b.key
-tre.serialize(tre.getRoot())
-a = tre.getRoot().left
-print a.height(a)
-'''
 
